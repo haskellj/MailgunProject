@@ -1,0 +1,61 @@
+.navbar-brand img {
+    max-height: 20px;
+}
+
+.navbar-text {
+    position: absolute;
+    top: 0;
+    left: 50px;
+}
+
+@media screen and (max-width: 330px) {
+    .navbar-text {
+        display: none;
+    }
+}
+
+.container.to-do-list {
+    margin-top: 100px;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+form {
+    margin-bottom: 25px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+i {
+    color: red;
+    cursor: pointer;
+}
+
+.input-group-addon:first-child {
+    border: 1px solid rgb(204,204,204);
+    border-radius: 4px;
+    display: inline-table;
+    margin-right: 6px;
+}
+
+.fixed {
+    position: fixed;
+    top: 80px;
+}
+
+.complete {
+    text-decoration: line-through;
+}
+
+/*.vertical-align {
+    display: flex;
+    align-items: center;
+}*/

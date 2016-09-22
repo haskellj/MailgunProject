@@ -1,5 +1,3 @@
-//TODO: make form stick when navbar touches top of it
-
 $(document).ready(function(){
     var form_position = $('form').offset().top;
 

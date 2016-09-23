@@ -18,16 +18,19 @@
     margin-top: 100px;
 }
 
+@media screen and (min-width: 768px) {
+    .container.to-do-list {
+        margin-top: 150px;
+    }
+}
+
 h1 {
     margin-top: 0;
 }
 
-form {
-    margin-bottom: 25px;
-}
-
 ul {
     list-style: none;
+    padding-left: 0;
 }
 
 li {
@@ -35,8 +38,35 @@ li {
 }
 
 i {
-    color: red;
     cursor: pointer;
+    margin: 0 5px;
+}
+
+i.fa-remove {
+    color: red;
+}
+
+i.fa-pencil {
+    color: green;
+}
+
+i.fa-save {
+    color: blue;
+}
+
+span.edit-icons {
+    display: inline-flex;
+    position: absolute;
+    transform: translateY(74%);
+}
+
+/* overwrite bootstrap styling */
+.input-group .form-control:first-child {
+    border-radius: 4px;
+}
+
+.input-group li .form-control {
+    margin-bottom: 6px;
 }
 
 .input-group-addon:first-child {
@@ -46,16 +76,26 @@ i {
     margin-right: 6px;
 }
 
+.form-container {
+    margin-bottom: 25px;
+}
+
+button[type="submit"] {
+    margin-bottom: 25px;
+}
+
 .fixed {
+    background: #fff;
+    padding: 30px 0 5px;
     position: fixed;
-    top: 80px;
+    top: 50px;
+    z-index: 10;
+}
+
+.task-edit {
+    position: relative;
 }
 
 .complete {
     text-decoration: line-through;
 }
-
-/*.vertical-align {
-    display: flex;
-    align-items: center;
-}*/

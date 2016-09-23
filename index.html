@@ -1,201 +1,73 @@
-<?php
-    $message = "wrong answer";
-    echo $message;
-?>
-
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Mailgun Project</title>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <img alt="Brand" src="img/mg-icon.png">
-                </a>
+    <head>
+        <title>Mailgun Project</title>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/styles.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <img alt="Brand" src="img/mg-icon.png">
+                    </a>
+                </div>
+                <p class="navbar-text">Mailgun Super Awesome Code Challenge</p>
             </div>
-            <p class="navbar-text">Mailgun Super Awesome Code Challenge</p>
-        </div>
-    </nav>
-    <div class="container to-do-list">
-        <div class="row">
-            <div class="form-container col-sm-6 col-sm-push-6">
-                <form>
-                    <div class="form-group">
-                        <label for="newTask">New Task</label>
-                        <input type="text" class="form-control" id="newTask" placeholder="Enter new task">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-            <div class="col-sm-6 col-sm-pull-6">
-                <h1>To Do:</h1>
-                <ul class="input-group">
-                    <div>
-                        <li class="default-task">
-                            <span class="input-group-addon">
-                                <input type="checkbox" aria-label="task-complete">
-                            </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i>
+        </nav>
+        <div class="container to-do-list">
+            <div class="row">
+                <div class="form-container col-sm-6 col-sm-push-6">
+                    <form>
+                        <div class="form-group">
+                            <label for="newTask">New Task</label>
+                            <input type="text" class="form-control" id="newTask" placeholder="Enter new task">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="task-added alert alert-success" role="alert" style="display: none;"><strong>Woot!</strong> Task added successfully!</div>
+                        <div class="task-added alert alert-danger" role="alert" style="display: none;"><strong>Woops</strong>! Unable to add task. Please try again.</div>
+                        <div class="task-update alert alert-success" role="alert" style="display: none;"><strong>Woot!</strong> Task edited successfully!</div>
+                        <div class="task-update alert alert-danger" role="alert" style="display: none;"><strong>Woops</strong>! Unable to edit task. Please try again.</div>
+                    </form>
+                </div>
+                <div class="col-sm-6 col-sm-pull-6">
+                    <h1>To Do:</h1>
+                    <ul class="input-group">
+                        <li>
+                            <div class="task-display">
+                                <span class="input-group-addon"><input type="checkbox" aria-label="task-complete"></span>
+                                <span class="task-text">Use the form to add new tasks </span>
+                                <i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit task"></i>
+                                <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i>
+                            </div>
+                            <div class="task-edit" style="display:none;">
+                                <input type="text" name="edit-default" value="Use the form to add new tasks" class="form-control">
+                                <span class="edit-icons">
+                                    <i class="fa fa-undo" data-toggle="tooltip" data-placement="top" title="Undo"></i>
+                                    <i class="fa fa-save" data-toggle="tooltip" data-placement="right" title="Save task"></i>
+                                </span>
+                            </div>
                         </li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                    <div>
-                        <li class="default-task"><span class="input-group-addon">
-                            <input type="checkbox" aria-label="task-complete">
-                        </span>Use the form to add new tasks <i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></li>
-                    </div>
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-<script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyDlp5Wu2TC5Ao8i8VvvNEzu2Ouhuh3yHGM",
-        authDomain: "mailgun-code-challenge.firebaseapp.com",
-        databaseURL: "https://mailgun-code-challenge.firebaseio.com",
-        storageBucket: "",
-        messagingSenderId: "377936961804"
-    };
-    firebase.initializeApp(config);
-</script>
-<script type="text/javascript" src="js/jawasqwips.js"></script>
-</body>
+        <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyDlp5Wu2TC5Ao8i8VvvNEzu2Ouhuh3yHGM",
+                authDomain: "mailgun-code-challenge.firebaseapp.com",
+                databaseURL: "https://mailgun-code-challenge.firebaseio.com",
+                storageBucket: "mailgun-code-challenge.appspot.com",
+                messagingSenderId: "377936961804"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <script type="text/javascript" src="js/jawasqwips.min.js"></script>
+    </body>
 </html>

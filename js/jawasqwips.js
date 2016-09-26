@@ -43,6 +43,7 @@ $(document).ready(function(){
     // Initialize firebase
     var fireDB = firebase.database();
     var new_task_id = '';
+    var current_tasks = [$('#defaultTask').find('.task-text').text()];
 
     function addTask(newTask)
     {
@@ -141,10 +142,14 @@ $(document).ready(function(){
 
     // Display all current tasks
     fireDB.ref('tasks').once('value').then(function(snapshot) {
-        //foreach through all tasks and append those that are not deleted
+        //loop through all tasks and append those that are not deleted
         $.each(snapshot.val(), function(task_id, task_obj){
             if(!task_obj.deleted) {
+                current_tasks.push(task_obj.description);
                 $('ul').append('<li data-task-id=' + task_id + '><div class="task-display"><span class="input-group-addon"><input type="checkbox" aria-label="task-complete"></span><span class="task-text">' + task_obj.description + ' </span><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Edit task"></i><i class="fa fa-remove" data-toggle="tooltip" data-placement="right" title="Remove task"></i></div><div class="task-edit" style="display:none;"><input type="text" name="edit-' + task_id + '" value="' + task_obj.description + '" class="form-control"><span class="edit-icons"><i class="fa fa-undo" data-toggle="tooltip" data-placement="top" title="Undo"></i><i class="fa fa-save" data-toggle="tooltip" data-placement="right" title="Save task"></i></span></div></li>')
+                if(task_obj.complete){
+                    $('li[data-task-id="' + task_id + '"]').addClass('complete').find('input').attr('checked', 'checked');
+                }
             }
         });
 
@@ -160,7 +165,14 @@ $(document).ready(function(){
         newTask = newTask.replace(/<(?:.|\n)*?>/gm, '');
 
         if(newTask != '') {
-            addTask(newTask);
+            if($.inArray(newTask, current_tasks)){
+                //task already exists in current to-do list
+                $('.task-update.alert-danger').html("<strong>Woops</strong>! Task already exists.").fadeIn();
+                setTimeout(function(){ $('.alert').fadeOut('slow'); }, 2000);
+            }
+            else {
+                addTask(newTask);
+            }
         }
         
     });
